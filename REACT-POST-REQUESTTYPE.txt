@@ -1,0 +1,201 @@
+post request in react.js using UNIREST NPM
+var unirest = require("unirest");
+
+var req = unirest("POST", "http://localhost:8080/api/posts");
+
+req.headers({
+  "postman-token": "d428b5d5-a8d5-3c71-ceea-e3ec0ae0429b",
+  "cache-control": "no-cache",
+  "content-type": "application/json"
+});
+
+req.type("json");
+req.send({
+  "title": "new title",
+  "name": "new name",
+  "creator": "new creator",
+  "tags": " new tags",
+  "selectedFile": "",
+  "likes": "1",
+  "createdAt": null
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+
+
+
+//post request in react.js using REQUEST NPM
+var request = require("request");
+
+var options = { method: 'POST',
+  url: 'http://localhost:8080/api/posts',
+  headers: 
+   { 'postman-token': '18ca737c-81b4-0446-ae4e-50eda1c77ffe',
+     'cache-control': 'no-cache',
+     'content-type': 'application/json' },
+  body: 
+   { title: 'new title',
+     name: 'new name',
+     creator: 'new creator',
+     tags: ' new tags',
+     selectedFile: '',
+     likes: '1',
+     createdAt: null },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+
+
+
+post request in react.js using HTTP NPM
+var http = require("http");
+
+var options = {
+  "method": "POST",
+  "hostname": "localhost",
+  "port": "8080",
+  "path": "/api/posts",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache",
+    "postman-token": "9aca3093-c65a-6a31-2033-49b90f2e1730"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(JSON.stringify({ title: 'new title',
+  name: 'new name',
+  creator: 'new creator',
+  tags: ' new tags',
+  selectedFile: '',
+  likes: '1',
+  createdAt: null }));
+req.end();
+
+
+
+
+
+
+
+///get request in reactjs using UNIREST NPM
+var unirest = require("unirest");
+
+var req = unirest("GET", "http://localhost:8080/api/posts");
+
+req.headers({
+  "postman-token": "1a200d35-bbbd-13c3-3586-181a1a866d4a",
+  "cache-control": "no-cache",
+  "content-type": "application/json"
+});
+
+req.type("json");
+req.send({
+  "title": "new title",
+  "name": "new name",
+  "creator": "new creator",
+  "tags": " new tags",
+  "selectedFile": "",
+  "likes": "1",
+  "createdAt": null
+});
+
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
+
+
+
+
+
+///get request in reactjs using REQUEST NPM
+var request = require("request");
+
+var options = { method: 'GET',
+  url: 'http://localhost:8080/api/posts',
+  headers: 
+   { 'postman-token': 'b0a31cc5-1f7b-b055-d9e3-3edbf8b01aa8',
+     'cache-control': 'no-cache',
+     'content-type': 'application/json' },
+  body: 
+   { title: 'new title',
+     name: 'new name',
+     creator: 'new creator',
+     tags: ' new tags',
+     selectedFile: '',
+     likes: '1',
+     createdAt: null },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+
+
+
+
+
+
+
+
+///get request in reactjs using HTTP NPM
+var http = require("http");
+
+var options = {
+  "method": "GET",
+  "hostname": "localhost",
+  "port": "8080",
+  "path": "/api/posts",
+  "headers": {
+    "content-type": "application/json",
+    "cache-control": "no-cache",
+    "postman-token": "9865afc0-9389-2102-7b07-893b730ad2d5"
+  }
+};
+
+var req = http.request(options, function (res) {
+  var chunks = [];
+
+  res.on("data", function (chunk) {
+    chunks.push(chunk);
+  });
+
+  res.on("end", function () {
+    var body = Buffer.concat(chunks);
+    console.log(body.toString());
+  });
+});
+
+req.write(JSON.stringify({ title: 'new title',
+  name: 'new name',
+  creator: 'new creator',
+  tags: ' new tags',
+  selectedFile: '',
+  likes: '1',
+  createdAt: null }));
+req.end();
